@@ -1,0 +1,30 @@
+
+<div class="flex-column p-5 col-2 border-right h-100">
+    <div class="justify-content-between d-flex">
+        <div>
+            <a class='button sidebar-options mb-2' href="{% url 'admin_home' %}">User</a>
+        </div>
+        <div>
+            <a class='button sidebar-options mb-2' href="{% url 'createuser'%}">+</a>
+        </div>
+    </div>
+    <div  class="justify-content-between d-flex">
+        <div>
+            <a class='button sidebar-options mb-2' href="{% url 'department'%}">Department</a>
+        </div>
+        <div>
+            <a class='button sidebar-options mb-2' href="{% url 'add_department'%}">+</a>
+        </div>
+    </div>
+    <div  class="justify-content-between d-flex">
+    <div>
+        <a class='button sidebar-options mb-2' href="{% url 'ticket' %}">Ticket</a>
+    </div>
+    <div>
+        <a class='button sidebar-options mb-2' href="{% url 'admin_ticket' %}">+</a>
+    </div>
+    </div>
+    <div>
+        <a class='button sidebar-options mb-2' href="{% url 'admin_logout'%}">Logout</a>
+    </div>
+</div>

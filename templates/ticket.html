@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock %}
+{% block content %}
+
+<div class=" h-100">
+    {% include 'admin_navbar.html' %}
+    <div class='d-flex h-100'>
+        {% include 'admin_sidebar.html' %}
+        <div class="w-100">
+            <div class="text-center w-100 header mb-2">{{title}}</div>
+            <div class="d-flex pl-3">
+                {% if messages %}
+                {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}                
+                <p class="text-danger text-center m-0 mr-3">{{message}}</p>
+                <a href="" class="h-100">
+                    <img src="{% static 'logo/x.svg'%}" height="24px">
+                </a>
+                {% else %}
+                <p class="text-success text-center m-0 mr-3">{{message}}</p>
+                <a href="" class="h-100">
+                    <img src="{% static 'logo/x.svg'%}" height="24px">
+                </a>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+            </div>
+            <div class='col-10 h-80 w-100 p-3'>
+                <table class="table">
+                    <thead>
+    
+                        <tr>
+                            <td>Ticket ID</td>
+                            <td>Subjects</td>
+                            <td>Priority</td>
+                            <td>Created At</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ticket in tickets %}
+                        <tr>
+                            <td>{{ticket.id}}</td>
+                            <td>{{ticket.subject}}</td>
+                            <td>{{ticket.priority}}</td>
+                            <td>{{ticket.created_at}}</td>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+</div>

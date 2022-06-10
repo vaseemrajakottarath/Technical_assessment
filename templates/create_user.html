@@ -1,0 +1,69 @@
+<section class="section-content padding-y">
+
+	<div class="text-center" style="width:100%; height:auto;">
+		<p style="font-size:30px; font-weight: 600;">CREATE USER</p>
+	</div>
+	<div class="card mx-auto" style="max-width:520px; margin-top:40px;">
+      <article class="card-body">
+		<header class="mb-4"><h4 class="card-title"></h4></header>
+		<form action="{% url 'createuser' %}" method="POST" id="registration">
+			{% csrf_token %} 
+				<div class="form-row">
+					<div class="col form-group">
+						<label>Name</label>
+						{{ form.name }}
+					</div> <!-- form-group end.// -->
+					 <!-- form-group end.// -->
+				</div> <!-- form-row end.// -->
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label>Email Address</label>
+					{{ form.email }}
+				</div>
+				<div class="form-group col-md-6">
+					<label>Mobile Number</label>
+					{{ form.phone_number }}
+				</div>
+				</div> <!-- form-group end.// -->
+			
+
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label>password</label>
+						{{ form.password }}
+					</div> <!-- form-group end.// --> 
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label>Department</label>
+						{{ form.department }}
+					</div> <!-- form-group end.// --> 
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label>Role</label>
+						{{ form.role }}
+					</div> <!-- form-group end.// --> 
+				</div>
+
+			    <div class="form-group">
+			        <button type="submit" style="background-color: #5cb85c;" class="btn btn-block"> <p style="color: #fff;">Register</p> </button>
+			    </div> <!-- form-group// -->      
+			        {{ form.email.error }}
+					{{ form.non_field_errors }}
+						
+				</form>
+			<style>
+				.error{
+					color:red !important;
+				}
+			</style>
+		</article><!-- card-body.// -->
+    </div> <!-- card .// -->
+    <p class="text-center mt-4">Have an account? <a href="">Log In</a></p>
+
+    <br><br>
+<!-- ============================ COMPONENT REGISTER  END.// ================================= -->
+
+
+</section>
