@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="h-100">
+    <div class="container-fluid navbar-holder " >
+        <div>
+            <p class="header text-light">User</p>
+        </div>
+    </div>  
+    <div class='d-flex h-100'>
+        <div class="flex-column p-5 col-2 border-right h-100">
+
+            <div  class="justify-content-between d-flex">
+                <div>
+                    <a class='button sidebar-options mb-2' href="{% url 'admin_ticket' %}">Ticket</a>
+                </div>
+                <div>
+                    <a class='button sidebar-options mb-2' href="{% url 'admin_ticket' %}">+</a>
+                </div>
+            </div>
+                <div  class="justify-content-between d-flex">
+                    <div>
+                        <a class='button sidebar-options mb-2' href="{% url 'admin_ticket' %}">Manage</a>
+                    </div>
+                    <div>
+                        <a class='button sidebar-options mb-2' href="{% url 'admin_ticket' %}">+</a>
+                    </div>
+                </div>
+            
+        
+        </div>
+        <div class='col-50 h-80 w-100 p-3'>
+            <div class="text-center w-100 header">Users</div>
+            
+            <table class="table">
+                <thead>
+
+                    <tr>
+                        <td>Subject</td>
+                        <td>Priority</td>
+                        <td>Body</td>
+                        <td>Department</td>
+                        <td>Role</td>
+                        
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.phone_number}}</td>
+                        <td>{{user.department}}</td>
+                        <td>{{user.role}}</td>
+                        <!-- <td>{{user.created_by}}</td> -->
+                        
+                    </tr>
+                    
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% endblock %}
+</div>

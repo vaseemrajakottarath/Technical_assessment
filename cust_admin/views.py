@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from user.models import User,Department
 from user.forms import RegistrationForms
 from .forms import TicketForm
+from .api import list_ticket
 
 # Create your views here.
 
@@ -111,9 +112,27 @@ def delete_department(request,pk):
     return redirect('department')
 
 def ticket(request):
-    return render(request,'ticket.html')
+    datas=list_ticket()
+    context = {
+        'title': 'Tickets',
+        'is_admin': True,
+        'datas':datas['tickets']
+    }
+    return render(request,'ticket.html',context)
 
+@login_required(redirect_field_name=None, login_url='admin_login')
 def create_ticket(request):
     form=TicketForm()
+    if request.method=='POST':
+        data={}
+        data['subject']=request.POST['subject']
+        data['description'] = request.POST['description']
+        data['priority'] = request.POST['priority']
+        data['phone_number'] = request.user.phone_number
+        data['email'] = request.user.email
+        form=TicketForm(data)
+        if form.is_valid():
+            form.save(data)
+            return redirect('admin_ticket')
     context={'form':form}
     return render(request,'create_ticket.html',context)

@@ -1,40 +1,60 @@
-
-        <div class='col-10 h-50 w-50 p-3'>
-            <div class="text-center w-50 header">Login</div>
-
-            <form method="post" action="">
-              {% csrf_token %}
-                <!-- Email input -->
-                <div class="form-outline mb-4">
-                  <input type="email" id="form2Example1" class="form-control"  name="email"/>
-                  <label class="form-label" for="form2Example1">Email address</label>
-                </div>
-              
-                <!-- Password input -->
-                <div class="form-outline mb-4">
-                  <input type="password" id="form2Example2" class="form-control"  name="password"/>
-                  <label class="form-label" for="form2Example2">Password</label>
-                </div>
-              
-                <!-- 2 column grid layout for inline styling -->
-                <div class="row mb-4">
-                  <div class="col d-flex justify-content-center">
-                    <!-- Checkbox -->
-                  
-              
-                <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
-              
-                <!-- Register buttons -->
-            
-              </form>
-        
-        </div>
-    </div>
-
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">  
+  </head>
+  <body>
+    <!------ Include the above in your HEAD tag ---------->
     
+    <div class='col-10 h-50 w-50 p-3'>
+      <div class="text-center w-50 header">Login</div>
+
+      <form method="post" action="">
+        {% csrf_token %}
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" id="form2Example1" class="form-control"  name="email"/>
+            <label class="form-label" for="form2Example1">Email address</label>
+          </div>
+        
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" id="form2Example2" class="form-control"  name="password"/>
+            <label class="form-label" for="form2Example2">Password</label>
+          </div>
+        
+          <!-- 2 column grid layout for inline styling -->
+          <div class="row mb-4">
+            <div class="col d-flex justify-content-center">
+              <!-- Checkbox -->
+            
+        
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+        
+          <!-- Register buttons -->
+      
+        </form>
+  
+  </div>
 </div>
 
+
+</div>
+
+    
+  </body>
+</html>
+       
+       
+       
+       
 
 
 

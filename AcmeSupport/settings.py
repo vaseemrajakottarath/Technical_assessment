@@ -136,6 +136,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #     'django.contrib.auth.backends.ModelBackend',
 # 'user.backends.CustomAuthenticationBackend']
 
-
+ZENDESK_EMAIL=config('ZENDESK_EMAIL')
+ZENDESK_PASSWORD=config('ZENDESK_PASSWORD')
+ZENDESK_SUB_DOMAIN=config('ZENDESK_SUB_DOMAIN')
+ZENDESK_TICKET_DOMAIN='https://'+ZENDESK_SUB_DOMAIN+'.zendesk.com'
 
 AUTH_USER_MODEL = 'user.User'
+
+# https://.zendesk.com

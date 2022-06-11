@@ -28,4 +28,4 @@ def login(request):
 
 @login_required(redirect_field_name=None, login_url='user_login')
 def home(request):
-    return HttpResponse("verified")
+    return render(request,'user_home.html')

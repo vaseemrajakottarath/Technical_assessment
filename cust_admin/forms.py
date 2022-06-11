@@ -1,6 +1,8 @@
 import imp
 from django import forms
 
+from .api import ticket_create
+
 class TicketForm(forms.Form):
 
     PRIORITY_CHOICES=(
@@ -21,4 +23,7 @@ class TicketForm(forms.Form):
     }),label='')
 
     class Meta:
-        fields=['subject','priority']
+        fields=['subject','description','priority']
+
+    def save(self,data):
+        ticket_create(data)
